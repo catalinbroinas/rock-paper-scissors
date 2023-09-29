@@ -20,48 +20,95 @@ function getPlayerChoice()
 }
 function playRound(playerSelection, computerSelection)
 {
+    playerSelection = getPlayerChoice();
+    computerSelection = getComputerChoice();
+
     if(playerSelection)
     {
         if(playerSelection === computerSelection)
         {
-            return message = "Equality";
+            return message = "equality";
         }
         else if(playerSelection === "rock")
         {
             if(computerSelection === "paper")
             {
-                return message = "You Lose this round.";
+                return message = "computer";
             }
             else
             {
-                return message = "You WIN this round";
+                return message = "player";
             }
         }
         else if (playerSelection === "paper")
         {
             if(computerSelection === "rock")
             {
-                return message = "You WIN this round.";
+                return message = "player";
             }
             else
             {
-                return message = "You lose this round";
+                return message = "computer";
             }
         }
         else
         {
             if(computerSelection === "paper")
             {
-                return message = "You Lose this round.";
+                return message = "computer";
             }
             else
             {
-                return message = "You WIN this round";
+                return message = "player";
             }
         }
     }
     else
     {
-        return message = "Your choice is nor valid!"
+        return message = "Your choice is nor valid!";
     }
+}
+
+function playGame()
+{
+    let playerScore = 0;
+    let computerScore = 0;
+    let result = "EQUALITY! Nobody win this game.";
+    let status;
+    for(let i = 0; i < 5; i++)
+    {
+        let whoWin =  playRound();
+        if(whoWin === "player")
+        {
+            playerScore++;
+            status = "Player score: " + playerScore + ". " + " Computer score: " + computerScore + ".";
+            console.log(status);
+        }
+        else if(whoWin === "computer")
+        {
+            computerScore++;
+            status = "Player score: " + playerScore + ". " + " Computer score: " + computerScore + ".";
+            console.log(status);
+        }
+        else
+        {
+            playerScore += 0;
+            computerScore += 0;
+            status = "Player score: " + playerScore + ". " + " Computer score: " + computerScore + ".";
+            console.log(status);
+        }
+    }
+
+    let finalScore = "Final result: player " + playerScore + ", computer " + computerScore;
+    
+    if(playerScore > computerScore)
+    {
+        result = "CONGRATULATION! You win this game.";
+    }
+    if(playerScore < computerScore)
+    {
+        result = "LOSE! Computer win this game.";
+    }
+
+    return finalScore + ". " + result;
 }
