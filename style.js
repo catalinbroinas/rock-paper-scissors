@@ -4,28 +4,64 @@ function getComputerChoice()
     const computerChoice = ['rock', 'paper', 'scissors'];
     return computerChoice[randomNumber];
 }
-function playRound(playerSelection, computerSelection)
+function getPlayerChoice()
 {
-    playerSelection = playerSelection.toLowerCase();
+    let playerChoice = prompt("Rock, paper or scissors?");
+    playerChoice = playerChoice.toLowerCase();
 
-    if(playerSelection === computerSelection)
+    if(playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors")
     {
-        return message = "Equality";
-    }
-    else if(playerSelection === "rock")
-    {
-
-    }
-    else if (playerSelection === "paper")
-    {
-
-    }
-    else if(playerSelection === "scissors")
-    {
-
+        return playerChoice;
     }
     else
     {
-        return message = "Your selection is not alow!";
+        return false;
+    }
+}
+function playRound(playerSelection, computerSelection)
+{
+    if(playerSelection)
+    {
+        if(playerSelection === computerSelection)
+        {
+            return message = "Equality";
+        }
+        else if(playerSelection === "rock")
+        {
+            if(computerSelection === "paper")
+            {
+                return message = "You Lose this round.";
+            }
+            else
+            {
+                return message = "You WIN this round";
+            }
+        }
+        else if (playerSelection === "paper")
+        {
+            if(computerSelection === "rock")
+            {
+                return message = "You WIN this round.";
+            }
+            else
+            {
+                return message = "You lose this round";
+            }
+        }
+        else
+        {
+            if(computerSelection === "paper")
+            {
+                return message = "You Lose this round.";
+            }
+            else
+            {
+                return message = "You WIN this round";
+            }
+        }
+    }
+    else
+    {
+        return message = "Your choice is nor valid!"
     }
 }

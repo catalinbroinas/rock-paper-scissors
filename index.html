@@ -8,7 +8,9 @@
 <body>
     <script src="style.js"></script>
     <script>
-        playRound("Paper", getComputerChoice());
+        let computerSelection = getComputerChoice();
+        let playerSelection = getPlayerChoice();
+        console.log(playRound(playerSelection, computerSelection));
     </script>
 </body>
 </html>
