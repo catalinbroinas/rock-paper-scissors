@@ -17,7 +17,9 @@ ul {
 
 /* Layout */
 .container {
-    margin: 0 20%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 }
 
 .list-group {
@@ -25,18 +27,21 @@ ul {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    gap: 1rem 2rem;
 }
-.score
-{
+
+.score {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     gap: 3rem;
 }
-.player, .computer
-{
+
+.player,
+.computer {
     text-align: center;
 }
+
 
 /* Typography  */
 .title {
@@ -56,4 +61,26 @@ ul {
     font-weight: lighter;
     font-size: 1.5rem;
     line-height: 1.5rem;
+}
+
+/* Components */
+.btn {
+    display: inline-block;
+    width: 7.5rem;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-align: center;
+    background-color: aqua;
+    color: black;
+    border: 0;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.btn:hover,
+.btn:active {
+    font-weight: 600;
+    background-color: aquamarine;
 }
