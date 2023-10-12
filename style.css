@@ -4,17 +4,56 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     font-family: "Roboto", Arial, sans-serif;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+/* Layout */
+.container {
+    margin: 0 20%;
+}
+
+.list-group {
+    margin: 1rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.score
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+.player, .computer
+{
+    text-align: center;
+}
+
+/* Typography  */
 .title {
     font-weight: bold;
+    font-size: 3rem;
     text-align: center;
-    margin: 1rem 0;
+    margin: 1rem 0 2rem;
+}
+
+.sub-title {
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.text {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
 }
