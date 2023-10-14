@@ -37,6 +37,13 @@ ul {
     gap: 3rem;
 }
 
+.result {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 .player,
 .computer {
     text-align: center;
