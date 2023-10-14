@@ -38,10 +38,15 @@ ul {
 }
 
 .result {
+    display: none;
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem;
+    border-left: 0.5rem solid darkblue;
     font-weight: bold;
     font-size: 2rem;
+    color: darkblue;
 }
 
 .player,
@@ -90,4 +95,18 @@ ul {
 .btn:active {
     font-weight: 600;
     background-color: aquamarine;
+}
+
+.btn-retry
+{
+    display: none;
+    width: 13rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: 0.15rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.7rem;
+}
+.btn-retry:hover
+{
+    border: 0.15rem solid rgba(0, 0, 0, 0.9);
 }

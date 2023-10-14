@@ -1,20 +1,25 @@
+// Buttons
 const rock = document.querySelector('#rock-button');
 const paper = document.querySelector('#paper-button');
 const scissors = document.querySelector('#scissors-button');
+const again = document.querySelector('#retry-button');
 
+// Section
+const gameSect = document.querySelector('.game');
+const scoreSect = document.querySelector('.score');
+const resultSect = document.querySelector('#result');
+
+// Text
 const player = document.querySelector('#player-score');
 const computer = document.querySelector('#computer-score');
-const result = document.querySelector('#result');
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     const computerChoice = ['rock', 'paper', 'scissors'];
     return computerChoice[randomNumber];
 }
-function getPlayerChoice(playerChoice) {
-    return playerChoice;
-}
-function getResult(playerSelection, computerSelection) {
+
+function compareChoices(playerSelection, computerSelection) {
     let message = 'ERROR';
 
     if (playerSelection === computerSelection) {
@@ -53,7 +58,7 @@ function playRound(playerSelection, computerSelection) {
     let computerScore = parseInt(computer.textContent);
 
     for (let i = 0; i < 1; i++) {
-        let whoWin = getResult(playerSelection, computerSelection);
+        let whoWin = compareChoices(playerSelection, computerSelection);
         if (whoWin === 'player') {
             playerScore++;
             player.textContent = playerScore;
@@ -94,16 +99,23 @@ function getScore() {
 
 function playGame() {
     let status = getScore();
+    let color = 'darkblue';
 
     if (status === 'player' || status === 'computer') {
         if (status === 'player') {
-            result.textContent = 'Player win this game!';
+            result.textContent = 'Congratulation! YOU win this game!';
+            color = 'green';
         }
         else {
-            result.textContent = 'Computer win this game!';
+            result.textContent = 'LOSE! Computer win this game.';
+            color = 'red';
         }
         player.textContent = 0;
         computer.textContent = 0;
+        gameSect.style.display = 'none';
+        scoreSect.style.display = 'none';
+        resultSect.style.cssText = 'display: block; color: ' + color + '; border-color: ' + color + ';';
+        again.style.display = 'inline-block';
     }
 }
 
@@ -124,4 +136,10 @@ scissors.addEventListener('click', () => {
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
     playGame();
+});
+again.addEventListener('click', () => {
+    gameSect.style.display = 'block';
+    scoreSect.style.display = 'flex';
+    resultSect.style.display = 'none';
+    again.style.display = 'none';
 });
