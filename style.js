@@ -73,21 +73,46 @@ function playRound(playerSelection, computerSelection) {
             computer.textContent = computerScore;
         }
     }
+
+    const score = [playerScore, computerScore];
+    return score;
+}
+
+function getScore() {
+    let score = playRound();
+    let playerScore = score[0];
+    let computerScore = score[1];
     
+    if(playerScore === 5 || computerScore === 5)
+    {
+        if(playerScore === 5)
+        {
+            return 'Player Win!';
+        }
+        else
+        {
+            return 'Computer Win!';
+        }
+    }
+
+    return 'Player score: ' + playerScore + ', computer score: ' + computerScore;
 }
 
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    console.log(getScore());
 });
 paper.addEventListener('click', () => {
     const playerSelection = 'paper';
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    console.log(getScore());
 });
 scissors.addEventListener('click', () => {
     const playerSelection = 'scissors';
     const computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
+    console.log(getScore());
 });
