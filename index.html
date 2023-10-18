@@ -9,59 +9,64 @@
 </head>
 
 <body>
+    <div class="container-fluid">
+        <!-- Title -->
+        <h1 class="page-title display-1">Rock Paper Scissors</h1>
 
-    <!-- Title -->
-    <h1 class="title">Rock Paper Scissors</h1>
+        <!-- Container -->
+        <div class="container">
+            <!-- Title -->
+            <h3 class="title">Play Game</h3>
 
-    <!-- Container -->
-    <div class="container">
+            <!-- Game -->
+            <section class="game">
+                <!-- Text -->
+                <p class="text">Click on your option</p>
 
-        <!-- Game -->
-        <section class="game">
-            <!-- Text -->
-            <p class="text">Click on your option</p>
+                <!-- Buttons -->
+                <ul id="group-button" class="list-group">
+                    <li class="list-group-item">
+                        <button class="btn" id="rock-button">Rock</button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn" id="paper-button">Paper</button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="btn" id="scissors-button">Scissors</button>
+                    </li>
+                </ul>
+                <!-- Buttons -->
+            </section>
+            <!-- Game -->
 
-            <!-- Buttons -->
-            <ul id="group-button" class="list-group">
+            <!-- Score -->
+            <section class="score">
+                <div class="player">
+                    <h3 class="sub-title">You</h3>
+                    <h3 id="player-score" class="sub-title">0</h3>
+                </div>
+                <div class="computer">
+                    <h3 class="sub-title">Computer</h3>
+                    <h3 id="computer-score" class="sub-title">0</h3>
+                </div>
+            </section>
+            <!-- Score -->
+
+            <!-- Result -->
+            <div class="result" id="result"></div>
+
+            <!-- Try Again -->
+            <ul id="retry-game" class="list-group">
                 <li class="list-group-item">
-                    <button class="btn" id="rock-button">Rock</button>
-                </li>
-                <li class="list-group-item">
-                    <button class="btn" id="paper-button">Paper</button>
-                </li>
-                <li class="list-group-item">
-                    <button class="btn" id="scissors-button">Scissors</button>
+                    <button class="btn btn-retry" id="retry-button">Play again</button>
                 </li>
             </ul>
-            <!-- Buttons -->
-        </section>
-        <!-- Game -->
+            <!-- Try Again -->
+        </div>
+        <!-- Container -->
 
-        <!-- Score -->
-        <section class="score">
-            <div class="player">
-                <h3 class="sub-title">You</h3>
-                <h3 id="player-score" class="sub-title">0</h3>
-            </div>
-            <div class="computer">
-                <h3 class="sub-title">Computer</h3>
-                <h3 id="computer-score" class="sub-title">0</h3>
-            </div>
-        </section>
-        <!-- Score -->
-
-        <!-- Result -->
-        <div class="result" id="result"></div>
-
-        <!-- Try Again -->
-        <ul id="retry-game" class="list-group">
-            <li class="list-group-item">
-                <button class="btn btn-retry" id="retry-button">Play again</button>
-            </li>
-        </ul>
-        <!-- Try Again -->
     </div>
-    <!-- Container -->
+    <!-- Page Container -->
 
     <script src="style.js"></script>
     <script></script>
