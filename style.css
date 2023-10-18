@@ -51,6 +51,19 @@ ul {
     justify-content: space-around;
     gap: 1rem 2rem;
 }
+.list-group-item
+{
+    width: 15rem;
+    height: auto;
+}
+.list-button
+{
+    cursor: pointer;
+}
+.list-button:hover
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 .score {
     display: flex;
@@ -86,20 +99,20 @@ ul {
 }
 .title {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
     margin: 1rem 0 2rem;
 }
 .sub-title {
-    font-weight: 500;
-    font-size: 2rem;
+    font-weight: 600;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
 .text {
     font-weight: lighter;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 2rem;
+    line-height: 2rem;
 }
 
 /* Components */
@@ -136,4 +149,9 @@ ul {
 .btn-retry:hover
 {
     border: 0.15rem solid rgba(0, 0, 0, 0.9);
+}
+.img-fluid
+{
+    max-width: 100%;
+    height: auto;
 }
