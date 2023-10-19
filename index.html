@@ -16,7 +16,7 @@
         <!-- Container -->
         <div class="container">
             <!-- Title -->
-            <h3 class="title">Play Game</h3>
+            <h3 id="title" class="title">Play Game</h3>
 
             <!-- Game -->
             <section class="game">
@@ -38,7 +38,6 @@
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <!-- <button class="btn" id="scissors-button">Scissors</button> -->
                         <a id="scissors-button" role="button" class="list-button">
                             <img src="img/scissors.jpg" alt="Scissors" class="img-fluid">
                         </a>
@@ -62,12 +61,14 @@
             <!-- Score -->
 
             <!-- Result -->
-            <div class="result" id="result"></div>
+            <div class="result" id="result">
+                <img id="winner" src="./img/mountain.jpg" class="img-fluid winner" alt="Result of the game">
+            </div>
 
             <!-- Try Again -->
             <ul id="retry-game" class="list-group">
                 <li class="list-group-item">
-                    <button class="btn btn-retry" id="retry-button">Play again</button>
+                    <button class="btn-retry" id="retry-button">Play again</button>
                 </li>
             </ul>
             <!-- Try Again -->

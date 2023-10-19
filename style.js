@@ -8,10 +8,15 @@ const again = document.querySelector('#retry-button');
 const gameSect = document.querySelector('.game');
 const scoreSect = document.querySelector('.score');
 const resultSect = document.querySelector('#result');
+const retrySect = document.querySelector('#retry-game');
+
+// Image
+const img = document.querySelector('#winner');
 
 // Text
 const player = document.querySelector('#player-score');
 const computer = document.querySelector('#computer-score');
+const title = document.querySelector('#title');
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -103,20 +108,45 @@ function playGame() {
 
     if (status === 'player' || status === 'computer') {
         if (status === 'player') {
-            result.textContent = 'Congratulation! YOU win this game!';
+            title.textContent = 'Congratulation! YOU win this game!';
             color = 'green';
+            img.src = './img/player.jpg';
         }
         else {
-            result.textContent = 'LOSE! Computer win this game.';
+            title.textContent = 'LOSE! Computer win this game.';
             color = 'red';
+            img.src = './img/computer.jpg';
         }
         player.textContent = 0;
         computer.textContent = 0;
         gameSect.style.display = 'none';
         scoreSect.style.display = 'none';
-        resultSect.style.cssText = 'display: block; color: ' + color + '; border-color: ' + color + ';';
-        again.style.display = 'inline-block';
+        title.style.cssText = 'color: ' + color + ';';
+        resultSect.style.cssText = 'display: block';
+
+        retrySect.style.display = 'flex';
     }
+}
+
+function createRipple(event) {
+    const button = event.currentTarget;
+  
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+  
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add("ripple");
+  
+    const ripple = button.getElementsByClassName("ripple")[0];
+  
+    if (ripple) {
+      ripple.remove();
+    }
+  
+    button.appendChild(circle);
 }
 
 rock.addEventListener('click', () => {
@@ -141,5 +171,8 @@ again.addEventListener('click', () => {
     gameSect.style.display = 'block';
     scoreSect.style.display = 'flex';
     resultSect.style.display = 'none';
-    again.style.display = 'none';
+    retrySect.style.display = 'none';
+    title.textContent = "Play Game";
+    title.style.color = "black";
 });
+again.addEventListener('click', createRipple);

@@ -45,7 +45,7 @@ ul {
 }
 
 .list-group {
-    margin: 1rem 0;
+    margin: 2rem 0;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -77,15 +77,21 @@ ul {
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding: 1rem 2rem;
-    border-left: 0.5rem solid darkblue;
-    font-weight: bold;
-    font-size: 2rem;
-    color: darkblue;
+    padding: 0;
 }
 
 .player,
 .computer {
+    text-align: center;
+}
+
+#retry-game {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#retry-game .list-group-item
+{
     text-align: center;
 }
 
@@ -139,19 +145,82 @@ ul {
 
 .btn-retry
 {
-    display: none;
-    width: 13rem;
-    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 400ms;
+    color: #fff;
+    background-color: #6200ee;
+    padding: 1rem 2rem;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
-    border: 0.15rem solid rgba(0, 0, 0, 0.3);
-    border-radius: 0.7rem;
-}
-.btn-retry:hover
-{
-    border: 0.15rem solid rgba(0, 0, 0, 0.9);
+    outline: 0;
+    border: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 .img-fluid
 {
     max-width: 100%;
     height: auto;
 }
+.winner 
+{
+    max-height: 20rem;
+    width: auto;
+}
+
+/* Animation */
+span.ripple 
+{
+    position: absolute; /* The absolute position we mentioned earlier */
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 600ms linear;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+@keyframes ripple 
+{
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 1919px)
+  {
+    .page-title 
+    {
+        position: fixed;
+        top: 1.5rem;
+    }
+    .container
+    {
+        margin-top: 4rem;
+    }
+  }
+  @media screen and (max-width: 1599px) 
+  {
+    .page-title 
+    {
+        position: fixed;
+        top: 1rem;
+    }
+    .container
+    {
+        margin-top: 5rem;
+        padding: 2.5rem 4rem;
+    }
+    .title
+    {
+        margin: 0 0 1rem;
+    }
+    #retry-game
+    {
+        margin: 2rem 0 0;
+    }
+    .result
+    {
+        margin: 0;
+    }
+  }
