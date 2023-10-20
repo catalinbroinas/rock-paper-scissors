@@ -104,17 +104,20 @@ function getScore() {
 
 function playGame() {
     let status = getScore();
-    let color = 'darkblue';
+    let color = '#6200ee';
+    let bgColor = '#6200ee';
 
     if (status === 'player' || status === 'computer') {
         if (status === 'player') {
             title.textContent = 'Congratulation! YOU win this game!';
-            color = 'green';
+            color = '#43A047';
+            bgColor = '#00BFA5';
             img.src = './img/player.jpg';
         }
         else {
             title.textContent = 'LOSE! Computer win this game.';
-            color = 'red';
+            color = '#CC0000';
+            bgColor = '#CC0000';
             img.src = './img/computer.jpg';
         }
         player.textContent = 0;
@@ -122,6 +125,7 @@ function playGame() {
         gameSect.style.display = 'none';
         scoreSect.style.display = 'none';
         title.style.cssText = 'color: ' + color + ';';
+        again.style.backgroundColor = bgColor;
         resultSect.style.cssText = 'display: block';
 
         retrySect.style.display = 'flex';
