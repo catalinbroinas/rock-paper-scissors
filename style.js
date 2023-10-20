@@ -134,25 +134,80 @@ function playGame() {
 
 function createRipple(event) {
     const button = event.currentTarget;
-  
+
+    // Calculate diameter and radius by width/height of element
     const circle = document.createElement("span");
     const diameter = Math.max(button.clientWidth, button.clientHeight);
     const radius = diameter / 2;
-  
+
+    // Ripple properties
     circle.style.width = circle.style.height = `${diameter}px`;
     circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
     circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
     circle.classList.add("ripple");
-  
+
+    // Verify if exist ripple 
     const ripple = button.getElementsByClassName("ripple")[0];
-  
+
     if (ripple) {
-      ripple.remove();
+        ripple.remove();
     }
-  
+
+    // Insert element with class
     button.appendChild(circle);
 }
 
+function rippleEffect()
+{
+    const item = document.querySelectorAll('.ripple-effects');
+
+    for(let i = 0; i < item.length; i++)
+    {
+        item[i].onmousedown = function (e) {
+            const newRound = document.createElement('div');
+      
+            newRound.className = 'cercle';
+            this.appendChild(newRound);
+      
+            const x = e.pageX - this.offsetLeft;
+            const y = e.pageY - this.offsetTop;
+      
+            newRound.style.left = x + "px";
+            newRound.style.top = y + "px";
+            newRound.className += " anim";
+      
+            setTimeout(function() {
+              newRound.remove();
+            }, 1000);
+          };
+    }
+}
+
+// var waveBtn = (function () {
+//     'use strict';
+//     var btn = document.querySelectorAll('.ripple-effects'),i;
+  
+//     for(i = 0; i < btn.length; i++) {
+//       btn[i].onmousedown = function (e) {
+//         var newRound = document.createElement('div'),x,y;
+  
+//         newRound.className = 'cercle';
+//         this.appendChild(newRound);
+  
+//         x = e.pageX - this.offsetLeft;
+//         y = e.pageY - this.offsetTop;
+  
+//         newRound.style.left = x + "px";
+//         newRound.style.top = y + "px";
+//         newRound.className += " anim";
+  
+//         setTimeout(function() {
+//           newRound.remove();
+//         }, 1000);
+//       };
+//     }
+//   }());
+window.addEventListener('load', rippleEffect);
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();

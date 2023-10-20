@@ -58,9 +58,18 @@ ul {
 }
 .list-button
 {
-    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
 }
-.list-button:hover
+.img-button
+{
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.img-button:hover, 
+.img-button:active
 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -94,7 +103,6 @@ ul {
 {
     text-align: center;
 }
-
 
 /* Typography  */
 .display-1 {
@@ -179,11 +187,38 @@ span.ripple
     animation: ripple 600ms linear;
     background-color: rgba(255, 255, 255, 0.7);
 }
+
+.cercle 
+{
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+  .anim 
+  {
+    opacity: 0.3;
+    animation: touch 0.8s ease-out;
+  }
+
 @keyframes ripple 
 {
     to {
       transform: scale(4);
       opacity: 0;
+    }
+}
+  
+  @keyframes touch {
+   40% {
+      opacity: 0.2;
+    }
+    100% { 
+      width: 800px;
+      height: 800px;
+      opacity: 0;
+      margin: -400px;
     }
   }
 
@@ -222,5 +257,12 @@ span.ripple
     .result
     {
         margin: 0;
+    }
+  }
+  @media screen and (max-width: 900px)
+  {
+    .page-title
+    {
+        display: none;
     }
   }
