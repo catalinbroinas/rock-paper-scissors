@@ -4,20 +4,6 @@ const paper = document.querySelector('#paper-button');
 const scissors = document.querySelector('#scissors-button');
 const again = document.querySelector('#retry-button');
 
-// Section
-const gameSect = document.querySelector('.game');
-const scoreSect = document.querySelector('.score');
-const resultSect = document.querySelector('#result');
-const retrySect = document.querySelector('#retry-game');
-
-// Image
-const img = document.querySelector('#winner');
-
-// Text
-const player = document.querySelector('#player-score');
-const computer = document.querySelector('#computer-score');
-const title = document.querySelector('#title');
-
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     const computerChoice = ['rock', 'paper', 'scissors'];
@@ -59,6 +45,8 @@ function compareChoices(playerSelection, computerSelection) {
 }
 
 function playRound(playerSelection, computerSelection) {
+    const player = document.querySelector('#player-score');
+    const computer = document.querySelector('#computer-score');
     let playerScore = parseInt(player.textContent);
     let computerScore = parseInt(computer.textContent);
 
@@ -107,6 +95,17 @@ function playGame() {
     let color = '#6200ee';
     let bgColor = '#6200ee';
 
+    const player = document.querySelector('#player-score');
+    const computer = document.querySelector('#computer-score');
+
+    const title = document.querySelector('#title');
+    const img = document.querySelector('#winner');
+    
+    const gameSect = document.querySelector('.game');
+    const scoreSect = document.querySelector('.score');
+    const resultSect = document.querySelector('#result');
+    const retrySect = document.querySelector('#retry-game');
+
     if (status === 'player' || status === 'computer') {
         if (status === 'player') {
             title.textContent = 'Congratulation! YOU win this game!';
@@ -132,8 +131,7 @@ function playGame() {
     }
 }
 
-function displayChoice(playerSelection, computerSelection)
-{
+function displayChoice(playerSelection, computerSelection) {
     const playerChoice = document.querySelector('#player-choice');
     const computerChoice = document.querySelector('#computer-choice');
     const imgPlayerChoice = document.querySelector('#img-player-choice');
@@ -146,17 +144,22 @@ function displayChoice(playerSelection, computerSelection)
     imgComputerChoice.src = './img/' + computerSelection + '.jpg';
 }
 
-function reset()
-{
+function reset() {
+    const title = document.querySelector('#title');
+    const gameSect = document.querySelector('.game');
+    const scoreSect = document.querySelector('.score');
+    const resultSect = document.querySelector('#result');
+    const retrySect = document.querySelector('#retry-game');
+
+    const playerChoice = document.querySelector('#player-choice');
+    const computerChoice = document.querySelector('#computer-choice');
+
     gameSect.style.display = 'block';
     scoreSect.style.display = 'flex';
     resultSect.style.display = 'none';
     retrySect.style.display = 'none';
     title.textContent = "Play Game";
     title.style.color = "black";
-
-    const playerChoice = document.querySelector('#player-choice');
-    const computerChoice = document.querySelector('#computer-choice');
 
     playerChoice.style.display = 'none';
     computerChoice.style.display = 'none';
@@ -187,29 +190,27 @@ function createRipple(event) {
     button.appendChild(circle);
 }
 
-function rippleEffect()
-{
+function rippleEffect() {
     const item = document.querySelectorAll('.ripple-effects');
 
-    for(let i = 0; i < item.length; i++)
-    {
+    for (let i = 0; i < item.length; i++) {
         item[i].onmousedown = function (e) {
             const newRound = document.createElement('div');
-      
+
             newRound.className = 'cercle';
             this.appendChild(newRound);
-      
+
             const x = e.pageX - this.offsetLeft;
             const y = e.pageY - this.offsetTop;
-      
+
             newRound.style.left = x + "px";
             newRound.style.top = y + "px";
             newRound.className += " anim";
-      
-            setTimeout(function() {
-              newRound.remove();
+
+            setTimeout(function () {
+                newRound.remove();
             }, 1000);
-          };
+        };
     }
 }
 
