@@ -230,21 +230,27 @@ window.addEventListener('load', rippleEffect);
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
-    displayChoice(playerSelection, computerSelection);
+    setTimeout(() => {
+        displayChoice(playerSelection, computerSelection);
+    }, 500);
     playRound(playerSelection, computerSelection);
     playGame();
 });
 paper.addEventListener('click', () => {
     const playerSelection = 'paper';
     const computerSelection = getComputerChoice();
-    displayChoice(playerSelection, computerSelection);
+    setTimeout(() => {
+        displayChoice(playerSelection, computerSelection);
+    }, 500);
     playRound(playerSelection, computerSelection);
     playGame();
 });
 scissors.addEventListener('click', () => {
     const playerSelection = 'scissors';
     const computerSelection = getComputerChoice();
-    displayChoice(playerSelection, computerSelection);
+    setTimeout(() => {
+        displayChoice(playerSelection, computerSelection);
+    }, 500);
     playRound(playerSelection, computerSelection);
     playGame();
 });
