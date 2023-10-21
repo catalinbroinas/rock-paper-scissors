@@ -108,14 +108,15 @@ function playGame() {
     const choicesButton = document.querySelectorAll('.list-button');
 
     if (status === 'player' || status === 'computer') {
+        title.textContent = 'The game is over';
         if (status === 'player') {
-            title.textContent = 'Congratulation! YOU win this game!';
+            text = 'Congratulation! YOU won this game.';
             color = '#43A047';
             bgColor = '#00BFA5';
             img.src = './img/player.jpg';
         }
         else {
-            title.textContent = 'LOSE! Computer win this game.';
+            text = 'LOSE! Computer won this game.';
             color = '#CC0000';
             bgColor = '#CC0000';
             img.src = './img/computer.jpg';
@@ -128,6 +129,7 @@ function playGame() {
             computer.textContent = 0;
             gameSect.style.display = 'none';
             scoreSect.style.display = 'none';
+            title.textContent = text;
             title.style.cssText = 'color: ' + color + ';';
             again.style.backgroundColor = bgColor;
             resultSect.style.cssText = 'display: block';
