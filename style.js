@@ -248,5 +248,7 @@ scissors.addEventListener('click', () => {
     playRound(playerSelection, computerSelection);
     playGame();
 });
-again.addEventListener('click', reset);
+again.addEventListener('click', () => {
+    setTimeout(reset, 500);
+});
 again.addEventListener('click', createRipple);
