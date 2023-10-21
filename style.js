@@ -100,11 +100,12 @@ function playGame() {
 
     const title = document.querySelector('#title');
     const img = document.querySelector('#winner');
-    
+
     const gameSect = document.querySelector('.game');
     const scoreSect = document.querySelector('.score');
     const resultSect = document.querySelector('#result');
     const retrySect = document.querySelector('#retry-game');
+    const choicesButton = document.querySelectorAll('.list-button');
 
     if (status === 'player' || status === 'computer') {
         if (status === 'player') {
@@ -119,15 +120,20 @@ function playGame() {
             bgColor = '#CC0000';
             img.src = './img/computer.jpg';
         }
-        player.textContent = 0;
-        computer.textContent = 0;
-        gameSect.style.display = 'none';
-        scoreSect.style.display = 'none';
-        title.style.cssText = 'color: ' + color + ';';
-        again.style.backgroundColor = bgColor;
-        resultSect.style.cssText = 'display: block';
+        for (let btn of choicesButton) {
+            btn.disabled = true;
+        }
+        setTimeout(() => {
+            player.textContent = 0;
+            computer.textContent = 0;
+            gameSect.style.display = 'none';
+            scoreSect.style.display = 'none';
+            title.style.cssText = 'color: ' + color + ';';
+            again.style.backgroundColor = bgColor;
+            resultSect.style.cssText = 'display: block';
 
-        retrySect.style.display = 'flex';
+            retrySect.style.display = 'flex';
+        }, 3000);
     }
 }
 
@@ -154,6 +160,8 @@ function reset() {
     const playerChoice = document.querySelector('#player-choice');
     const computerChoice = document.querySelector('#computer-choice');
 
+    const choicesButton = document.querySelectorAll('.list-button');
+
     gameSect.style.display = 'block';
     scoreSect.style.display = 'flex';
     resultSect.style.display = 'none';
@@ -163,6 +171,10 @@ function reset() {
 
     playerChoice.style.display = 'none';
     computerChoice.style.display = 'none';
+
+    for (let btn of choicesButton) {
+        btn.disabled = false;
+    }
 }
 
 function createRipple(event) {

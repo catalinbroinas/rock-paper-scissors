@@ -31,10 +31,12 @@ ul {
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .page-title {
     position: fixed;
     top: 3rem;
 }
+
 .container {
     display: flex;
     flex-flow: column;
@@ -51,37 +53,40 @@ ul {
     justify-content: space-around;
     gap: 1rem 2rem;
 }
-.list-group-item
-{
+
+.list-group-item {
     width: 15rem;
     height: auto;
 }
-.list-button
-{
+
+.list-button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
     display: inline-block;
     position: relative;
     overflow: hidden;
 }
-.img-button
-{
+
+.img-button {
     margin: 0.5rem;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
 }
-.img-button:hover, 
-.img-button:active
-{
+
+.img-button:hover,
+.img-button:active {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.img-choice
-{
+.img-choice {
     max-width: 10rem;
     height: auto;
 }
+
 #player-choice,
-#computer-choice
-{
+#computer-choice {
     display: none;
 }
 
@@ -111,8 +116,8 @@ ul {
     justify-content: center;
     align-items: center;
 }
-#retry-game .list-group-item
-{
+
+#retry-game .list-group-item {
     text-align: center;
 }
 
@@ -123,12 +128,14 @@ ul {
     color: #A7FFEB;
     font-weight: 900;
 }
+
 .title {
     font-weight: bold;
     font-size: 4rem;
     text-align: center;
     margin: 1rem 0 2rem;
 }
+
 .sub-title {
     font-weight: 600;
     font-size: 2.5rem;
@@ -163,8 +170,7 @@ ul {
     background-color: aquamarine;
 }
 
-.btn-retry
-{
+.btn-retry {
     position: relative;
     overflow: hidden;
     transition: background 400ms;
@@ -179,102 +185,97 @@ ul {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
-.img-fluid
-{
+
+.img-fluid {
     max-width: 100%;
     height: auto;
 }
-.winner 
-{
+
+.winner {
     max-height: 20rem;
     width: auto;
 }
 
 /* Animation */
-span.ripple 
-{
-    position: absolute; /* The absolute position we mentioned earlier */
+span.ripple {
+    position: absolute;
+    /* The absolute position we mentioned earlier */
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 600ms linear;
     background-color: rgba(255, 255, 255, 0.7);
 }
 
-.cercle 
-{
+.cercle {
     width: 0px;
     height: 0px;
     position: absolute;
     background: white;
     border-radius: 50%;
 }
-  .anim 
-  {
+
+.anim {
     opacity: 0.3;
     animation: touch 0.8s ease-out;
-  }
+}
 
-@keyframes ripple 
-{
+@keyframes ripple {
     to {
-      transform: scale(4);
-      opacity: 0;
+        transform: scale(4);
+        opacity: 0;
     }
 }
-  
-  @keyframes touch {
-   40% {
-      opacity: 0.2;
-    }
-    100% { 
-      width: 800px;
-      height: 800px;
-      opacity: 0;
-      margin: -400px;
-    }
-  }
 
-  @media screen and (max-width: 1919px)
-  {
-    .page-title 
-    {
+@keyframes touch {
+    40% {
+        opacity: 0.2;
+    }
+
+    100% {
+        width: 800px;
+        height: 800px;
+        opacity: 0;
+        margin: -400px;
+    }
+}
+
+@media screen and (max-width: 1919px) {
+    .page-title {
         position: fixed;
         top: 1.5rem;
     }
-    .container
-    {
+
+    .container {
         margin-top: 4rem;
     }
-  }
-  @media screen and (max-width: 1599px) 
-  {
-    .page-title 
-    {
+}
+
+@media screen and (max-width: 1599px) {
+    .page-title {
         position: fixed;
         top: 1rem;
     }
-    .container
-    {
+
+    .container {
         margin-top: 5rem;
         padding: 2.5rem 4rem;
     }
-    .title
-    {
+
+    .title {
         margin: 0 0 1rem;
     }
-    #retry-game
-    {
+
+    #retry-game {
         margin: 2rem 0 0;
     }
-    .result
-    {
+
+    .result {
         margin: 0;
     }
-  }
-  @media screen and (max-width: 900px)
-  {
-    .page-title
-    {
+}
+
+@media screen and (max-width: 900px) {
+    .page-title {
         display: none;
     }
-  }
+}
