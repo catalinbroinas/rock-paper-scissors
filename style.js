@@ -132,6 +132,36 @@ function playGame() {
     }
 }
 
+function displayChoice(playerSelection, computerSelection)
+{
+    const playerChoice = document.querySelector('#player-choice');
+    const computerChoice = document.querySelector('#computer-choice');
+    const imgPlayerChoice = document.querySelector('#img-player-choice');
+    const imgComputerChoice = document.querySelector('#img-computer-choice');
+
+    playerChoice.style.display = 'flex';
+    computerChoice.style.display = 'flex';
+
+    imgPlayerChoice.src = './img/' + playerSelection + '.jpg';
+    imgComputerChoice.src = './img/' + computerSelection + '.jpg';
+}
+
+function reset()
+{
+    gameSect.style.display = 'block';
+    scoreSect.style.display = 'flex';
+    resultSect.style.display = 'none';
+    retrySect.style.display = 'none';
+    title.textContent = "Play Game";
+    title.style.color = "black";
+
+    const playerChoice = document.querySelector('#player-choice');
+    const computerChoice = document.querySelector('#computer-choice');
+
+    playerChoice.style.display = 'none';
+    computerChoice.style.display = 'none';
+}
+
 function createRipple(event) {
     const button = event.currentTarget;
 
@@ -183,55 +213,27 @@ function rippleEffect()
     }
 }
 
-// var waveBtn = (function () {
-//     'use strict';
-//     var btn = document.querySelectorAll('.ripple-effects'),i;
-  
-//     for(i = 0; i < btn.length; i++) {
-//       btn[i].onmousedown = function (e) {
-//         var newRound = document.createElement('div'),x,y;
-  
-//         newRound.className = 'cercle';
-//         this.appendChild(newRound);
-  
-//         x = e.pageX - this.offsetLeft;
-//         y = e.pageY - this.offsetTop;
-  
-//         newRound.style.left = x + "px";
-//         newRound.style.top = y + "px";
-//         newRound.className += " anim";
-  
-//         setTimeout(function() {
-//           newRound.remove();
-//         }, 1000);
-//       };
-//     }
-//   }());
 window.addEventListener('load', rippleEffect);
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
+    displayChoice(playerSelection, computerSelection);
     playRound(playerSelection, computerSelection);
     playGame();
 });
 paper.addEventListener('click', () => {
     const playerSelection = 'paper';
     const computerSelection = getComputerChoice();
+    displayChoice(playerSelection, computerSelection);
     playRound(playerSelection, computerSelection);
     playGame();
 });
 scissors.addEventListener('click', () => {
     const playerSelection = 'scissors';
     const computerSelection = getComputerChoice();
+    displayChoice(playerSelection, computerSelection);
     playRound(playerSelection, computerSelection);
     playGame();
 });
-again.addEventListener('click', () => {
-    gameSect.style.display = 'block';
-    scoreSect.style.display = 'flex';
-    resultSect.style.display = 'none';
-    retrySect.style.display = 'none';
-    title.textContent = "Play Game";
-    title.style.color = "black";
-});
+again.addEventListener('click', reset);
 again.addEventListener('click', createRipple);
