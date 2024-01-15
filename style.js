@@ -262,7 +262,9 @@ scissors.addEventListener('click', () => {
 again.addEventListener('click', () => {
     setTimeout(reset, 500);
 });
-again.addEventListener('click', createRipple);
-play.addEventListener('click', createRipple);
-yourNameButton.addEventListener('click', createRipple);
-computerNameButton.addEventListener('click', createRipple);
+
+// Add ripple effect on all buttons
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach((button) => {
+    button.addEventListener('click', createRipple);
+});
