@@ -3,6 +3,9 @@ const rock = document.querySelector('#rock-button');
 const paper = document.querySelector('#paper-button');
 const scissors = document.querySelector('#scissors-button');
 const again = document.querySelector('#retry-button');
+const play = document.querySelector('#play-button');
+const yourNameButton = document.querySelector('#your-name-button');
+const computerNameButton = document.querySelector('#computer-name-button');
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -260,3 +263,6 @@ again.addEventListener('click', () => {
     setTimeout(reset, 500);
 });
 again.addEventListener('click', createRipple);
+play.addEventListener('click', createRipple);
+yourNameButton.addEventListener('click', createRipple);
+computerNameButton.addEventListener('click', createRipple);
