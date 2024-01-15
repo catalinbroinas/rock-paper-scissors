@@ -121,6 +121,16 @@ ul {
     text-align: center;
 }
 
+.setting
+{
+    background-color: green;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
 /* Typography  */
 .display-1 {
     font-size: 5rem;
