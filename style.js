@@ -2,17 +2,24 @@
 const rock = document.querySelector('#rock-button');
 const paper = document.querySelector('#paper-button');
 const scissors = document.querySelector('#scissors-button');
+
 const again = document.querySelector('#retry-button');
 const reload = document.querySelector('#reload-button');
+
 const play = document.querySelector('#play-button');
 const yourNameButton = document.querySelector('#your-name-button');
 const computerNameButton = document.querySelector('#computer-name-button');
 
 const closeButton = document.querySelector('#close-button');
+const applyButton = document.querySelector('#set-name');
 
 // Headings
 const yourNameHeading = document.querySelector('#your-name');
 const computerNameHeading = document.querySelector('#computer-name');
+
+// Modal
+const modalBox = document.querySelector("#set-name-modal");
+const nameInput = document.querySelector('#name');
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -250,7 +257,7 @@ function rippleEffect() {
 }
 
 function setName(who) {
-    const name = prompt('Set your name');
+    const name = nameInput.value;
 
     if (name) {
         switch (who) {
@@ -267,17 +274,12 @@ function setName(who) {
 }
 
 function showModal() {
-    const modalBox = document.querySelector("#set-name-modal");
     modalBox.style.display = 'block';
 }
 
 function closeModal() {
-    const modalBox = document.querySelector("#set-name-modal");
     modalBox.style.display = 'none';
 }
-
-const modalButton = document.querySelector('#btn-modal');
-modalButton.addEventListener('click', showModal);
 
 closeButton.addEventListener('click', () => {
     setTimeout(closeModal, 500);
@@ -294,7 +296,6 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('click', (event) => {
     setTimeout(() => {
-        const modalBox = document.querySelector("#set-name-modal");
         if (event.target == modalBox) {
             modalBox.style.display = "none";}
     }, 500)
@@ -344,15 +345,28 @@ buttons.forEach((button) => {
 });
 
 // Set your name
+let whoSet = undefined; 
+
 yourNameButton.addEventListener('click', () => {
-    setTimeout((who) => {
-        setName(who);
-    }, 500, 'user');
+    whoSet = 'user';
+    setTimeout(() => {
+        showModal();
+    }, 500);
 });
 computerNameButton.addEventListener('click', () => {
+    whoSet = 'computer'; 
     setTimeout((who) => {
+        showModal();
         setName(who);
     }, 500, 'computer');
+});
+
+applyButton.addEventListener('click', () => {
+    setName(whoSet);
+    nameInput.value = '';
+    setTimeout(() => {
+        closeModal();
+    }, 500);
 });
 
 // Play game with checked options
