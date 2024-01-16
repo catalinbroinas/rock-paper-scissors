@@ -3,6 +3,7 @@ const rock = document.querySelector('#rock-button');
 const paper = document.querySelector('#paper-button');
 const scissors = document.querySelector('#scissors-button');
 const again = document.querySelector('#retry-button');
+const reload = document.querySelector('#reload-button');
 const play = document.querySelector('#play-button');
 const yourNameButton = document.querySelector('#your-name-button');
 const computerNameButton = document.querySelector('#computer-name-button');
@@ -151,6 +152,7 @@ function playGame() {
             title.textContent = text;
             title.style.cssText = 'color: ' + color + ';';
             again.style.backgroundColor = bgColor;
+            reload.style.color = bgColor;
             resultSect.style.cssText = 'display: block';
 
             retrySect.style.display = 'flex';
@@ -308,6 +310,11 @@ scissors.addEventListener('click', () => {
 
 again.addEventListener('click', () => {
     setTimeout(reset, 500);
+});
+reload.addEventListener('click', () => {
+    setTimeout(() => {
+        location.reload();
+    }, 500);
 });
 
 // Add ripple effect on all buttons
