@@ -161,12 +161,11 @@ ul {
 }
 
 /* Components */
-.btn-retry {
+.btn-retry, 
+.btn-reload {
     position: relative;
     overflow: hidden;
     transition: background 400ms;
-    color: #fff;
-    background-color: #00BFA5;
     padding: 1rem 2rem;
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
@@ -175,6 +174,15 @@ ul {
     border-radius: 0.25rem;
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
     cursor: pointer;
+}
+
+.btn-retry {
+    color: #fff;
+    background-color: #00BFA5;
+}
+.btn-reload {
+    color: #00BFA5;
+    background-color: #fff;
 }
 
 .btn-secondary,
