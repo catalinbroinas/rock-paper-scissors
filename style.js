@@ -239,15 +239,18 @@ function setName(who)
 {
     const name = prompt('Set your name');
 
-    switch (who) {
-        case 'user':
-            localStorage.setItem('myName', name);
-            yourNameHeading.textContent = localStorage.getItem('myName');
-            break;
-        case 'computer':
-            localStorage.setItem('computerName', name);
-            computerNameHeading.textContent = localStorage.getItem('computerName');
-            break;
+    if(name)
+    {
+        switch (who) {
+            case 'user':
+                localStorage.setItem('myName', name);
+                yourNameHeading.textContent = localStorage.getItem('myName');
+                break;
+            case 'computer':
+                localStorage.setItem('computerName', name);
+                computerNameHeading.textContent = localStorage.getItem('computerName');
+                break;
+        }
     }
 }
 
@@ -262,6 +265,7 @@ window.addEventListener('load', () => {
         computerNameHeading.textContent = localStorage.getItem('computerName');
     }
 });
+
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
@@ -289,6 +293,7 @@ scissors.addEventListener('click', () => {
     playRound(playerSelection, computerSelection);
     playGame();
 });
+
 again.addEventListener('click', () => {
     setTimeout(reset, 500);
 });
