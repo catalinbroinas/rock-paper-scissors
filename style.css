@@ -141,6 +141,15 @@ input {
     margin: 2rem 0 3rem;
 }
 
+.game-info {
+    display: none;
+    width: 100%;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
 /* Typography  */
 .display-1 {
     font-size: 5rem;
@@ -166,6 +175,14 @@ input {
     font-weight: lighter;
     font-size: 2rem;
     line-height: 2rem;
+}
+
+.info-name {
+    font-weight: normal;
+    font-size: 2rem;
+}
+.info-versus {
+    font-size: 3rem;
 }
 
 /* Components */
