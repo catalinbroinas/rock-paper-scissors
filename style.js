@@ -7,6 +7,10 @@ const play = document.querySelector('#play-button');
 const yourNameButton = document.querySelector('#your-name-button');
 const computerNameButton = document.querySelector('#computer-name-button');
 
+// Headings
+const yourNameHeading = document.querySelector('#your-name');
+const computerNameHeading = document.querySelector('#computer-name');
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     const computerChoice = ['rock', 'paper', 'scissors'];
@@ -231,6 +235,22 @@ function rippleEffect() {
     }
 }
 
+function setName(who)
+{
+    const name = prompt('Set your name');
+
+    switch (who) {
+        case 'user':
+            localStorage.setItem('myName', name);
+            yourNameHeading.textContent = localStorage.getItem('myName');
+            break;
+        case 'computer':
+            localStorage.setItem('computerName', name);
+            computerNameHeading.textContent = localStorage.getItem('computerName');
+            break;
+    }
+}
+
 window.addEventListener('load', rippleEffect);
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
@@ -267,4 +287,12 @@ again.addEventListener('click', () => {
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
     button.addEventListener('click', createRipple);
+});
+
+// Set your name
+yourNameButton.addEventListener('click', () => {
+    setName('user');
+});
+computerNameButton.addEventListener('click', () => {
+    setName('computer');
 });
