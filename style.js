@@ -108,8 +108,8 @@ function playGame() {
     const title = document.querySelector('#title');
     const img = document.querySelector('#winner');
 
-    const gameSect = document.querySelector('.game');
-    const scoreSect = document.querySelector('.score');
+    const gameSect = document.querySelector('#game');
+    const scoreSect = document.querySelector('#score');
     const resultSect = document.querySelector('#result');
     const retrySect = document.querySelector('#retry-game');
     const choicesButton = document.querySelectorAll('.list-button');
@@ -161,8 +161,8 @@ function displayChoice(playerSelection, computerSelection) {
 
 function reset() {
     const title = document.querySelector('#title');
-    const gameSect = document.querySelector('.game');
-    const scoreSect = document.querySelector('.score');
+    const gameSect = document.querySelector('#game');
+    const scoreSect = document.querySelector('#score');
     const resultSect = document.querySelector('#result');
     const retrySect = document.querySelector('#retry-game');
 
@@ -314,4 +314,22 @@ computerNameButton.addEventListener('click', () => {
     setTimeout((who) => {
         setName(who);
     }, 500, 'computer');
+});
+
+// Play game with checked options
+play.addEventListener('click', () => {
+    setTimeout(() => {
+        const settingSect = document.querySelector('#setting');
+        const gameSect = document.querySelector('#game');
+        const scoreSect = document.querySelector('#score');
+        const title = document.querySelector('#title');
+
+        settingSect.style.display = 'none';
+
+        title.textContent = 'Play Game';
+
+        gameSect.style.display = 'block';
+        scoreSect.style.display = 'flex';
+
+    }, 500);
 });

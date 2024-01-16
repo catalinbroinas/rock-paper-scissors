@@ -91,11 +91,15 @@ ul {
 }
 
 .score {
-    display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     gap: 3rem;
+}
+
+.game,
+.score {
+    display: none;
 }
 
 .result {
@@ -126,7 +130,7 @@ ul {
     flex-flow: row wrap;
     justify-content: center;
     gap: 2rem;
-    margin-bottom: 2rem;
+    padding: 2rem 0;
 }
 
 /* Typography  */
