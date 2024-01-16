@@ -114,16 +114,28 @@ function playGame() {
     const retrySect = document.querySelector('#retry-game');
     const choicesButton = document.querySelectorAll('.list-button');
 
+    let yourName = 'YOU';
+    let computerName = 'Computer';
+
+    if(localStorage.getItem('myName'))
+    {
+        yourName = localStorage.getItem('myName');
+    }
+    if(localStorage.getItem('computerName'))
+    {
+        computerName = localStorage.getItem('computerName');
+    }
+
     if (status === 'player' || status === 'computer') {
         title.textContent = 'The game is over';
         if (status === 'player') {
-            text = 'Congratulation! YOU won this game.';
+            text = `Congratulation! ${yourName} won this game.`;
             color = '#43A047';
             bgColor = '#00BFA5';
             img.src = './img/player.jpg';
         }
         else {
-            text = 'LOSE! Computer won this game.';
+            text = `LOSE! ${computerName} won this game.`;
             color = '#CC0000';
             bgColor = '#CC0000';
             img.src = './img/computer.jpg';
