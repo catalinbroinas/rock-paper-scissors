@@ -252,6 +252,16 @@ function setName(who)
 }
 
 window.addEventListener('load', rippleEffect);
+window.addEventListener('load', () => {
+    if (localStorage.getItem('myName'))
+    {
+        yourNameHeading.textContent = localStorage.getItem('myName');
+    }
+    if (localStorage.getItem('computerName'))
+    {
+        computerNameHeading.textContent = localStorage.getItem('computerName');
+    }
+});
 rock.addEventListener('click', () => {
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
