@@ -141,7 +141,7 @@ input {
     margin: 2rem 0 3rem;
 }
 
-.game-info {
+.info-game {
     display: none;
     width: 100%;
     flex-flow: row wrap;

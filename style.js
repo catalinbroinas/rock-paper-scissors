@@ -16,6 +16,8 @@ const applyButton = document.querySelector('#set-name');
 // Headings
 const yourNameHeading = document.querySelector('#your-name');
 const computerNameHeading = document.querySelector('#computer-name');
+const infoPlayerName = document.querySelector('#info-player-name');
+const infoComputerName = document.querySelector('#info-computer-name');
 
 // Modal
 const modalBox = document.querySelector("#set-name-modal");
@@ -259,15 +261,19 @@ function rippleEffect() {
 function setName(who) {
     const name = nameInput.value;
 
+    infoGameSect.style.display = 'flex';
+
     if (name) {
         switch (who) {
             case 'user':
                 localStorage.setItem('myName', name);
                 yourNameHeading.textContent = localStorage.getItem('myName');
+                infoPlayerName.textContent = localStorage.getItem('myName');
                 break;
             case 'computer':
                 localStorage.setItem('computerName', name);
                 computerNameHeading.textContent = localStorage.getItem('computerName');
+                infoComputerName.textContent = localStorage.getItem('computerName');
                 break;
         }
     }
@@ -346,6 +352,20 @@ buttons.forEach((button) => {
 
 // Set your name
 let whoSet = undefined; 
+const infoGameSect = document.querySelector('#info-game');
+
+window.addEventListener('load', () => {
+    if (localStorage.getItem('myName'))
+    {
+        infoGameSect.style.display = 'flex';
+        infoPlayerName.textContent = localStorage.getItem('myName');
+    }
+    if (localStorage.getItem('computerName'))
+    {
+        infoGameSect.style.display = 'flex';
+        infoComputerName.textContent = localStorage.getItem('computerName');
+    }
+});
 
 yourNameButton.addEventListener('click', () => {
     whoSet = 'user';
@@ -363,6 +383,9 @@ computerNameButton.addEventListener('click', () => {
 
 applyButton.addEventListener('click', () => {
     setName(whoSet);
+    setTimeout(() => {
+        closeModal();
+    }, 500);
     nameInput.value = '';
     setTimeout(() => {
         closeModal();
@@ -383,6 +406,7 @@ play.addEventListener('click', () => {
 
         gameSect.style.display = 'block';
         scoreSect.style.display = 'flex';
+        infoGameSect.style.display = 'none';
 
     }, 500);
 });
