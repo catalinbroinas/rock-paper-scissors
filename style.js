@@ -291,8 +291,12 @@ buttons.forEach((button) => {
 
 // Set your name
 yourNameButton.addEventListener('click', () => {
-    setName('user');
+    setTimeout((who) => {
+        setName(who);
+    }, 500, 'user');
 });
 computerNameButton.addEventListener('click', () => {
-    setName('computer');
+    setTimeout((who) => {
+        setName(who);
+    }, 500, 'computer');
 });
