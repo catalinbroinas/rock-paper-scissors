@@ -8,6 +8,8 @@ const play = document.querySelector('#play-button');
 const yourNameButton = document.querySelector('#your-name-button');
 const computerNameButton = document.querySelector('#computer-name-button');
 
+const closeButton = document.querySelector('#close-button');
+
 // Headings
 const yourNameHeading = document.querySelector('#your-name');
 const computerNameHeading = document.querySelector('#computer-name');
@@ -118,12 +120,10 @@ function playGame() {
     let yourName = 'YOU';
     let computerName = 'Computer';
 
-    if(localStorage.getItem('myName'))
-    {
+    if (localStorage.getItem('myName')) {
         yourName = localStorage.getItem('myName');
     }
-    if(localStorage.getItem('computerName'))
-    {
+    if (localStorage.getItem('computerName')) {
         computerName = localStorage.getItem('computerName');
     }
 
@@ -249,12 +249,10 @@ function rippleEffect() {
     }
 }
 
-function setName(who)
-{
+function setName(who) {
     const name = prompt('Set your name');
 
-    if(name)
-    {
+    if (name) {
         switch (who) {
             case 'user':
                 localStorage.setItem('myName', name);
@@ -268,16 +266,38 @@ function setName(who)
     }
 }
 
+function showModal() {
+    const modalBox = document.querySelector("#set-name-modal");
+    modalBox.style.display = 'block';
+}
+
+function closeModal() {
+    const modalBox = document.querySelector("#set-name-modal");
+    modalBox.style.display = 'none';
+}
+
+const modalButton = document.querySelector('#btn-modal');
+modalButton.addEventListener('click', showModal);
+
+closeButton.addEventListener('click', () => {
+    setTimeout(closeModal, 500);
+});
+
 window.addEventListener('load', rippleEffect);
 window.addEventListener('load', () => {
-    if (localStorage.getItem('myName'))
-    {
+    if (localStorage.getItem('myName')) {
         yourNameHeading.textContent = localStorage.getItem('myName');
     }
-    if (localStorage.getItem('computerName'))
-    {
+    if (localStorage.getItem('computerName')) {
         computerNameHeading.textContent = localStorage.getItem('computerName');
     }
+});
+window.addEventListener('click', (event) => {
+    setTimeout(() => {
+        const modalBox = document.querySelector("#set-name-modal");
+        if (event.target == modalBox) {
+            modalBox.style.display = "none";}
+    }, 500)
 });
 
 rock.addEventListener('click', () => {

@@ -19,6 +19,14 @@ ul {
     padding: 0;
 }
 
+input {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    border: none;
+}
+
 /* Layout */
 .container-fluid {
     position: relative;
@@ -161,7 +169,7 @@ ul {
 }
 
 /* Components */
-.btn-retry, 
+.btn-retry,
 .btn-reload {
     position: relative;
     overflow: hidden;
@@ -176,6 +184,7 @@ ul {
     cursor: pointer;
     transition: box-shadow 0.3s;
 }
+
 .btn-retry:hover,
 .btn-reload:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
@@ -185,6 +194,7 @@ ul {
     color: #fff;
     background-color: #00BFA5;
 }
+
 .btn-reload {
     color: #00BFA5;
     background-color: #fff;
@@ -214,17 +224,20 @@ ul {
     color: #ffffff;
     background-color: #304FFE;
 }
+
 .btn-secondary {
     border: 2px solid #304FFE;
     color: #304FFE;
     background-color: #ffffff;
 }
+
 .btn-secondary:hover {
     border: 2px solid #304FFE;
     color: #304FFE;
     background-color: #ffffff;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
+
 .btn-primary:hover {
     background-color: #304FFE;
     border-color: #304FFE;
@@ -240,6 +253,65 @@ ul {
 .winner {
     max-height: 20rem;
     width: auto;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 25vh;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 1.5rem 3rem;
+    width: 50vw;
+}
+
+/* The Close Button */
+.close {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+}
+
+.btn-close {
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.btn-close:hover,
+.btn-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    max-width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    max-width: 100%;
+    border-bottom: 2px solid #BDBDBD;
+    transition: border-color 0.3s ease-in-out;
+}
+.form-control:focus {
+    border-color: #616161;
 }
 
 /* Animation */
